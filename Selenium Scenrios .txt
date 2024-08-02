@@ -1,0 +1,54 @@
+Selenium Scenrios 
+
+1. Starting Automation Initialize.......
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main1 {
+    public static void main(String[] args) {
+	WebDriver driver = getDriver();
+    driver.get("http://www.facebook.com");
+    WebElement email = driver.findElement(By.name("email"));
+    email.clear();
+    email.sendKeys("myuser");
+    WebElement password = driver.findElement(By.name("pass"));
+    password.clear();
+    password.sendKeys("mypass");
+    WebElement loginbutton = driver.findElement(By.id("loginbutton"));
+    loginbutton.click();
+    System.out.println("done!");
+	}}
+	
+
+2. To Find Xpath 
+1. Inspect 
+2. Ctrl +f
+3. //input[@name="firstName"]
+
+3. How to write xpath in Selenium when properties has no unique values?(Dynamic xpath)
+Traverse it through Parent sides
+1. Inspect to that element 
+2. Find Parent Just 1 Up 
+3. //div[@class='scroll-carousel_slider__2xxdX scroll-carousel_scroll__2c1ai scroll-carousel_noScrollBar__3DTMx']/div[6]
+
+4. Find xpath when hidden dropdown/invisible DOM is not opening (Flipkart)
+Video for help : https://youtu.be/zw99PZalGqA?si=axvL4-JBJsTZL_G8
+1. Inspect (Not visible / element disappear)
+2. Go To Event Listner -> Blur -> Remove (All 3 availables)
+3. window,document,body
+4. Now you able to inspect that exact element 
+
+5. How to find xpath for Footers / Print in One xpath all.
+WebElement footer = driver.findElement(By.xpath("//footer"));
+        // Find all elements under the footer
+        List<WebElement> footerElements = footer.findElements(By.xpath(".//*"));
+        // Print the text of all footer elements
+        for (WebElement element : footerElements) {
+            System.out.println(element.getText());
+        }
+		
+
+
+
